@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/main_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.appcompat.widget.Toolbar android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" android:id="@id/toolbar" android:background="@drawable/toolbar_bg" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" android:elevation="6.0dip" app:contentInsetEnd="0.0dip" app:contentInsetStart="0.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/toolbar_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/app_name" android:maxLines="1" android:layout_weight="1.0" />
+                <ImageButton android:id="@id/btn_fullscreen" android:background="?selectableItemBackgroundBorderless" android:layout_width="36.0dip" android:layout_height="36.0dip" android:src="@android:drawable/ic_menu_crop" android:scaleType="centerInside" android:tint="@android:color/white" android:contentDescription="@string/fullscreen" />
+                <ImageButton android:id="@id/btn_reload" android:background="?selectableItemBackgroundBorderless" android:layout_width="36.0dip" android:layout_height="36.0dip" android:src="@android:drawable/ic_menu_rotate" android:scaleType="centerInside" android:tint="@android:color/white" android:contentDescription="@string/reload" />
+                <ImageButton android:id="@id/btn_settings" android:background="?selectableItemBackgroundBorderless" android:layout_width="36.0dip" android:layout_height="36.0dip" android:src="@android:drawable/ic_menu_preferences" android:scaleType="centerInside" android:tint="@android:color/white" android:contentDescription="@string/settings_title" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+        <ProgressBar android:id="@id/progress_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="3.0dip" android:max="100" style="?android:progressBarStyleHorizontal" />
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <android.webkit.WebView android:id="@id/webview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <TextView android:gravity="center" android:layout_gravity="center" android:id="@id/error_text" android:padding="16.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/error_network" />
+            <ProgressBar android:layout_gravity="center" android:id="@id/loading_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </FrameLayout>
+    </LinearLayout>
+    <FrameLayout android:id="@id/fullscreen_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageButton android:layout_gravity="end|center|top" android:id="@id/btn_exit_fullscreen" android:background="@drawable/fab_circle" android:visibility="gone" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginTop="12.0dip" android:src="@android:drawable/ic_menu_close_clear_cancel" android:tint="@android:color/white" android:contentDescription="@string/exit_fullscreen" android:alpha="0.5" android:layout_marginEnd="12.0dip" />
+</FrameLayout>
