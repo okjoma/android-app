@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .locals 2
+    .locals 4
     .param p1, "view"    # Landroid/webkit/WebView;
     .param p2, "url"    # Ljava/lang/String;
 
@@ -72,6 +72,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 215
+    const-string v0, "(function(){var all=document.querySelectorAll('div,span,button,a');for(var i=0;i<all.length;i++){if(all[i].innerText&&all[i].innerText.indexOf('\u9000\u51fa\u6e38\u620f')>=0){all[i].parentElement.style.display='none';break;}}})()"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+
     return-void
 .end method
 
