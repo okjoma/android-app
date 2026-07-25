@@ -34,8 +34,6 @@
 
 .field private mainLayout:Landroid/view/View;
 
-.field private splashOverlay:Landroid/view/View;
-
 .field private progressBar:Landroid/widget/ProgressBar;
 
 .field private settingsLauncher:Landroidx/activity/result/ActivityResultLauncher;
@@ -148,14 +146,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/gameapp/webview/MainActivity;->mainLayout:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static bridge synthetic -$$Nest$fgetsplashOverlay(Lcom/gameapp/webview/MainActivity;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/gameapp/webview/MainActivity;->splashOverlay:Landroid/view/View;
 
     return-object p0
 .end method
@@ -1082,14 +1072,6 @@
 
     iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->mainLayout:Landroid/view/View;
 
-    sget v1, Lcom/gameapp/webview/R$id;->splash_overlay:I
-
-    invoke-virtual {p0, v1}, Lcom/gameapp/webview/MainActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->splashOverlay:Landroid/view/View;
-
     .line 80
     new-instance v1, Landroidx/activity/result/contract/ActivityResultContracts$StartActivityForResult;
 
@@ -1138,16 +1120,6 @@
 
     .line 98
     :goto_0
-    iget-object v0, p0, Lcom/gameapp/webview/MainActivity;->splashOverlay:Landroid/view/View;
-
-    new-instance v1, Lcom/gameapp/webview/MainActivity$4;
-
-    invoke-direct {v1, v0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Landroid/view/View;)V
-
-    const-wide/16 v2, 0x5dc
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
-
     return-void
 .end method
 
