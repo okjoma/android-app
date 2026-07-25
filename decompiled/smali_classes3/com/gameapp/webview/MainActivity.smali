@@ -1162,9 +1162,14 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .line 62
+.line 62
     const v0, 0x7f110227
+
     invoke-virtual {p0, v0}, Lcom/gameapp/webview/MainActivity;->setTheme(I)V
+
+    const/16 v0, 0xa
+
+    invoke-virtual {p0, v0}, Lcom/gameapp/webview/MainActivity;->setRequestedOrientation(I)V
 
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
