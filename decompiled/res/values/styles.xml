@@ -3607,6 +3607,9 @@
         <item name="colorPrimaryVariant">#ffcc4800</item>
         <item name="colorSecondary">#ffff8a30</item>
     </style>
+    <style name="Theme.GameApp.Splash" parent="@style/Theme.GameApp">
+        <item name="android:windowBackground">@drawable/toolbar_bg</item>
+    </style>
     <style name="Theme.Material3.Dark" parent="@style/Base.Theme.Material3.Dark" />
     <style name="Theme.Material3.Dark.BottomSheetDialog" parent="@style/Base.Theme.Material3.Dark.BottomSheetDialog" />
     <style name="Theme.Material3.Dark.Dialog" parent="@style/Base.Theme.Material3.Dark.Dialog" />
