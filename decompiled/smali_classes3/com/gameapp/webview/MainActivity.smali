@@ -14,8 +14,6 @@
 
 .field private btnFullscreen:Landroid/widget/ImageButton;
 
-.field private btnHistory:Landroid/widget/ImageButton;
-
 .field private btnReload:Landroid/widget/ImageButton;
 
 .field private btnSettings:Landroid/widget/ImageButton;
@@ -512,9 +510,6 @@
     iput-object p1, p0, Lcom/gameapp/webview/MainActivity;->currentUrl:Ljava/lang/String;
 
     .line 132
-    invoke-direct {p0, p1}, Lcom/gameapp/webview/MainActivity;->saveUrlToHistory(Ljava/lang/String;)V
-
-    .line 133
     iget-object v0, p0, Lcom/gameapp/webview/MainActivity;->webView:Landroid/webkit/WebView;
 
     const/4 v1, 0x0
@@ -553,175 +548,6 @@
 
     .line 141
     :goto_0
-    return-void
-.end method
-
-.method private saveUrlToHistory(Ljava/lang/String;)V
-    .locals 6
-    .param p1, "url"
-
-    sget-object v0, Lcom/gameapp/webview/MainActivity;->PREFS_NAME:Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/gameapp/webview/MainActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v1, "history_0"
-
-    const-string v2, ""
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string v2, "history_1"
-
-    const-string v3, ""
-
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "history_2"
-
-    const-string v4, ""
-
-    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const-string v2, "history_2"
-
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "history_1"
-
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    goto :goto_0
-
-    :cond_1
-    const-string v4, "history_2"
-
-    invoke-interface {v0, v4, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "history_1"
-
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    :goto_0
-    const-string v1, "history_0"
-
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    return-void
-.end method
-
-.method public getHistoryUrls()Ljava/util/List;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    sget-object v1, Lcom/gameapp/webview/MainActivity;->PREFS_NAME:Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v1, v2}, Lcom/gameapp/webview/MainActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    const-string v2, "history_0"
-
-    const-string v3, ""
-
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_0
-    const-string v2, "history_1"
-
-    const-string v3, ""
-
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_1
-    const-string v2, "history_2"
-
-    const-string v3, ""
-
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    return-object v0
-.end method
-
-.method static bridge synthetic access$navigateToUrl(Lcom/gameapp/webview/MainActivity;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/gameapp/webview/MainActivity;->loadWebView(Ljava/lang/String;)V
-
     return-void
 .end method
 
@@ -1089,7 +915,7 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 5
+    .locals 1
 
     .line 302
     iget-object v0, p0, Lcom/gameapp/webview/MainActivity;->customView:Landroid/view/View;
@@ -1120,41 +946,7 @@
 
     .line 307
     :cond_1
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const-string v1, "\u63d0\u793a"
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const-string v1, "\u786e\u5b9a\u8981\u9000\u51fa\u5417\uff1f"
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const-string v1, "\u786e\u5b9a\u9000\u51fa"
-
-    new-instance v2, Lcom/gameapp/webview/MainActivity$4;
-
-    invoke-direct {v2, p0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Lcom/gameapp/webview/MainActivity;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const-string v1, "\u53d6\u6d88"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onBackPressed()V
 
     .line 309
     :goto_0
@@ -1265,23 +1057,6 @@
     iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->btnReload:Landroid/widget/ImageButton;
 
     .line 75
-    sget v1, Lcom/gameapp/webview/R$id;->btn_history:I
-
-    invoke-virtual {p0, v1}, Lcom/gameapp/webview/MainActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageButton;
-
-    iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->btnHistory:Landroid/widget/ImageButton;
-
-    new-instance v2, Lcom/gameapp/webview/MainActivity$5;
-
-    invoke-direct {v2, p0}, Lcom/gameapp/webview/MainActivity$5;-><init>(Lcom/gameapp/webview/MainActivity;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 76
     sget v1, Lcom/gameapp/webview/R$id;->btn_exit_fullscreen:I
 
     invoke-virtual {p0, v1}, Lcom/gameapp/webview/MainActivity;->findViewById(I)Landroid/view/View;
