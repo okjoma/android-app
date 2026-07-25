@@ -915,7 +915,7 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 1
+    .locals 2
 
     .line 302
     iget-object v0, p0, Lcom/gameapp/webview/MainActivity;->customView:Landroid/view/View;
@@ -946,7 +946,41 @@
 
     .line 307
     :cond_1
-    invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onBackPressed()V
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const-string v1, "\u63d0\u793a"
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const-string v1, "\u786e\u5b9a\u8981\u9000\u51fa\u5417\uff1f"
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/gameapp/webview/MainActivity$4;
+
+    invoke-direct {v1, p0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Lcom/gameapp/webview/MainActivity;)V
+
+    const-string p0, "\u786e\u5b9a\u9000\u51fa"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const-string v1, "\u53d6\u6d88"
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     .line 309
     :goto_0
