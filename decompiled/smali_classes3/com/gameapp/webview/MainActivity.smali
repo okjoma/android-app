@@ -54,10 +54,6 @@
 
 .field private webView:Landroid/webkit/WebView;
 
-.field private jsBridge:Lcom/gameapp/webview/GameJsBridge;
-
-.field private updateUrl:Ljava/lang/String;
-
 
 # direct methods
 .method public static synthetic $r8$lambda$CTb6B7JGzsOLm6DJY2967Gfke9Q(Lcom/gameapp/webview/MainActivity;Landroid/view/View;)V
@@ -222,10 +218,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/gameapp/webview/MainActivity;->isFullscreen:Z
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/gameapp/webview/MainActivity;->updateUrl:Ljava/lang/String;
 
     return-void
 .end method
@@ -850,18 +842,6 @@
 
     invoke-virtual {v1, v3}, Landroid/webkit/WebView;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
 
-    new-instance v1, Lcom/gameapp/webview/GameJsBridge;
-
-    invoke-direct {v1, p0}, Lcom/gameapp/webview/GameJsBridge;-><init>(Landroid/app/Activity;)V
-
-    iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->jsBridge:Lcom/gameapp/webview/GameJsBridge;
-
-    iget-object v3, p0, Lcom/gameapp/webview/MainActivity;->webView:Landroid/webkit/WebView;
-
-    const-string v4, "GameBridge"
-
-    invoke-virtual {v3, v1, v4}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
-
     .line 282
     return-void
 .end method
@@ -921,21 +901,6 @@
 
 
 # virtual methods
-.method public onJsRequestFullscreen()V
-    .locals 1
-    .annotation runtime Landroid/webkit/JavascriptInterface;
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/gameapp/webview/MainActivity;->isFullscreen:Z
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Lcom/gameapp/webview/MainActivity;->enterImmersiveFullscreen()V
-
-    :cond_0
-    return-void
-.end method
-
 .method public onBackPressed()V
     .locals 1
 
@@ -986,8 +951,6 @@
     sget v0, Lcom/gameapp/webview/R$layout;->activity_main:I
 
     invoke-virtual {p0, v0}, Lcom/gameapp/webview/MainActivity;->setContentView(I)V
-
-
 
     .line 67
     sget v1, Lcom/gameapp/webview/R$id;->webview:I
@@ -1175,53 +1138,22 @@
 
     .line 98
     :goto_0
-    new-instance v0, Landroid/os/Handler;
+    new-instance v0, Lcom/gameapp/webview/MainActivity$4;
+
+    invoke-direct {v0, p0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Lcom/gameapp/webview/MainActivity;)V
+
+    new-instance v1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    new-instance v1, Lcom/gameapp/webview/MainActivity$4;
-
-    invoke-direct {v1, p0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Lcom/gameapp/webview/MainActivity;)V
+    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     const-wide/16 v2, 0x5dc
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    const-string v0, "GameAppPrefs"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/gameapp/webview/MainActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v1, "update_url"
-
-    const-string v2, ""
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/gameapp/webview/MainActivity;->updateUrl:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_update
-
-    new-instance v1, Lcom/gameapp/webview/UpdateChecker;
-
-    invoke-direct {v1, p0}, Lcom/gameapp/webview/UpdateChecker;-><init>(Landroid/app/Activity;)V
-
-    invoke-virtual {v1, v0}, Lcom/gameapp/webview/UpdateChecker;->checkUpdate(Ljava/lang/String;)V
-
-    :cond_update
     return-void
 .end method
 

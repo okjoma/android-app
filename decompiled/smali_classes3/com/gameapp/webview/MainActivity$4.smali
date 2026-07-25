@@ -46,15 +46,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/gameapp/webview/MainActivity$4;->this$0:Lcom/gameapp/webview/MainActivity;
-
-    invoke-static {v0}, Lcom/gameapp/webview/MainActivity;->-$$Nest$fgetmainLayout(Lcom/gameapp/webview/MainActivity;)Landroid/view/View;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
     return-void
 .end method
