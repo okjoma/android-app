@@ -1138,21 +1138,15 @@
 
     .line 98
     :goto_0
-    new-instance v0, Lcom/gameapp/webview/MainActivity$4;
+    iget-object v0, p0, Lcom/gameapp/webview/MainActivity;->splashOverlay:Landroid/view/View;
 
-    invoke-direct {v0, p0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Lcom/gameapp/webview/MainActivity;)V
+    new-instance v1, Lcom/gameapp/webview/MainActivity$4;
 
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v1, v0}, Lcom/gameapp/webview/MainActivity$4;-><init>(Landroid/view/View;)V
 
     const-wide/16 v2, 0x5dc
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method

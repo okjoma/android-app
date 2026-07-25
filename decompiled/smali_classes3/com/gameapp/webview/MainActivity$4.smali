@@ -16,15 +16,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/gameapp/webview/MainActivity;
+.field final synthetic val$splashView:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/gameapp/webview/MainActivity;)V
+.method constructor <init>(Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/gameapp/webview/MainActivity;
+    .param p1, "splashView"    # Landroid/view/View;
 
-    iput-object p1, p0, Lcom/gameapp/webview/MainActivity$4;->this$0:Lcom/gameapp/webview/MainActivity;
+    iput-object p1, p0, Lcom/gameapp/webview/MainActivity$4;->val$splashView:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,11 +36,7 @@
 .method public run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/gameapp/webview/MainActivity$4;->this$0:Lcom/gameapp/webview/MainActivity;
-
-    invoke-static {v0}, Lcom/gameapp/webview/MainActivity;->-$$Nest$fgetsplashOverlay(Lcom/gameapp/webview/MainActivity;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/gameapp/webview/MainActivity$4;->val$splashView:Landroid/view/View;
 
     const/16 v1, 0x8
 
