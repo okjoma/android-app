@@ -72,7 +72,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 215
-    const-string v0, "(function(){var all=document.querySelectorAll('div,span,button,a');for(var i=0;i<all.length;i++){if(all[i].innerText&&all[i].innerText.indexOf('\u9000\u51fa\u6e38\u620f')>=0){all[i].parentElement.style.display='none';break;}}})()"
+    const-string v0, "setTimeout(function(){var all=document.querySelectorAll(\'*\');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf(\'\u9000\u51fa\')>=0){all[i].style.display=\'none\';var p=all[i].parentElement;if(p)p.style.display=\'none\';}}},1500)"
 
     const/4 v1, 0x0
 
