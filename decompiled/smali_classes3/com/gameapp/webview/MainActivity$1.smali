@@ -86,7 +86,7 @@
 
     iput-boolean v2, p0, Lcom/gameapp/webview/MainActivity$1;->firstLoad:Z
 
-    const-string v0, "var count=0;var timer=setInterval(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';}};count++;if(count>5)clearInterval(timer);},2000)"
+    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';}}setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';}}},3000);},5000)"
 
     const/4 v1, 0x0
 
