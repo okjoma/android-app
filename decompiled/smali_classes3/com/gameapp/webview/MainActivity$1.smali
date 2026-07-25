@@ -17,22 +17,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/gameapp/webview/MainActivity;
 
-.field private firstLoad:Z
-
 
 # direct methods
 .method constructor <init>(Lcom/gameapp/webview/MainActivity;)V
-    .locals 1
+    .locals 0
     .param p1, "this$0"    # Lcom/gameapp/webview/MainActivity;
 
     .line 201
     iput-object p1, p0, Lcom/gameapp/webview/MainActivity$1;->this$0:Lcom/gameapp/webview/MainActivity;
 
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/gameapp/webview/MainActivity$1;->firstLoad:Z
 
     return-void
 .end method
@@ -78,21 +72,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 215
-    iget-boolean v2, p0, Lcom/gameapp/webview/MainActivity$1;->firstLoad:Z
-
-    if-eqz v2, :cond_skip
-
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/gameapp/webview/MainActivity$1;->firstLoad:Z
-
-    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';}}setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';}}},3000);},5000)"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
-
-    :cond_skip
     return-void
 .end method
 
