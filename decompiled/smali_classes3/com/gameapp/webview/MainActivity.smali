@@ -52,6 +52,8 @@
 
 .field private webView:Landroid/webkit/WebView;
 
+.field private jsBridge:Lcom/gameapp/webview/GameJsBridge;
+
 
 # direct methods
 .method public static synthetic $r8$lambda$CTb6B7JGzsOLm6DJY2967Gfke9Q(Lcom/gameapp/webview/MainActivity;Landroid/view/View;)V
@@ -823,6 +825,12 @@
 
     invoke-virtual {v1, v3}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
+    new-instance v2, Lcom/gameapp/webview/GameJsBridge;
+    invoke-direct {v2, p0}, Lcom/gameapp/webview/GameJsBridge;-><init>(Landroid/app/Activity;)V
+    iput-object v2, p0, Lcom/gameapp/webview/MainActivity;->jsBridge:Lcom/gameapp/webview/GameJsBridge;
+    const-string v3, "GameJsBridge"
+    invoke-virtual {v1, v2, v3}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
+
     .line 239
     iget-object v1, p0, Lcom/gameapp/webview/MainActivity;->webView:Landroid/webkit/WebView;
 
@@ -891,6 +899,19 @@
 
 
 # virtual methods
+.method public onJsRequestFullscreen()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/gameapp/webview/MainActivity;->isFullscreen:Z
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Lcom/gameapp/webview/MainActivity;->enterImmersiveFullscreen()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onBackPressed()V
     .locals 1
 
