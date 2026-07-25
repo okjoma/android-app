@@ -72,7 +72,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 215
-    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';var p=all[i].parentElement;if(p)p.style.display='none';}}},1500);setTimeout(function(){var o=new MutationObserver(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.display='none';var p=all[i].parentElement;if(p)p.style.display='none';}}});o.observe(document.body||document.documentElement,{childList:true,subtree:true});},2000)"
+    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出游戏')>=0){all[i].style.display='none';}}},1500);setTimeout(function(){var mo=new MutationObserver(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出游戏')>=0){all[i].style.display='none';}}});mo.observe(document.body||document.documentElement,{childList:true,subtree:true});},2000)"
 
     const/4 v1, 0x0
 
