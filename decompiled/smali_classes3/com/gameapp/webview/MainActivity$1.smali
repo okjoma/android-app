@@ -72,7 +72,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 215
-    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出游戏')>=0){all[i].style.display='none';}}},3000)"
+    const-string v0, "setTimeout(function(){var all=document.querySelectorAll('*');for(var i=0;i<all.length;i++){if(all[i].textContent&&all[i].textContent.indexOf('退出')>=0){all[i].style.visibility='hidden';}}},3000)"
 
     const/4 v1, 0x0
 
