@@ -14,8 +14,6 @@
 
 .field private btnFullscreen:Landroid/widget/ImageButton;
 
-.field private btnHistory:Landroid/widget/ImageButton;
-
 .field private btnReload:Landroid/widget/ImageButton;
 
 .field private btnSettings:Landroid/widget/ImageButton;
@@ -1263,22 +1261,6 @@
 
     iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->btnReload:Landroid/widget/ImageButton;
 
-    sget v1, Lcom/gameapp/webview/R$id;->btn_history:I
-
-    invoke-virtual {p0, v1}, Lcom/gameapp/webview/MainActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageButton;
-
-    iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->btnHistory:Landroid/widget/ImageButton;
-
-    new-instance v2, Lcom/gameapp/webview/MainActivity$5;
-
-    invoke-direct {v2, p0}, Lcom/gameapp/webview/MainActivity$5;-><init>(Lcom/gameapp/webview/MainActivity;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     .line 75
     sget v1, Lcom/gameapp/webview/R$id;->btn_exit_fullscreen:I
 
@@ -1300,6 +1282,12 @@
     check-cast v1, Landroid/widget/TextView;
 
     iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->toolbarTitle:Landroid/widget/TextView;
+
+    new-instance v2, Lcom/gameapp/webview/MainActivity$5;
+
+    invoke-direct {v2, p0}, Lcom/gameapp/webview/MainActivity$5;-><init>(Lcom/gameapp/webview/MainActivity;)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 77
     sget v1, Lcom/gameapp/webview/R$id;->fullscreen_container:I
