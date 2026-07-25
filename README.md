@@ -57,6 +57,7 @@ java -jar uber-apk-signer.jar --apks output.apk \
 - **新增**：退出确认对话框
 - **新增**：URL 历史记录（最多 3 条）
 - **新增**：高分辨率重新设计的应用图标（紫色渐变 + 游戏手柄）
+- **优化**：Activity 设置 `screenOrientation="sensor"`，横竖屏自由切换，不再锁定竖屏
 
 ## 签名说明
 
