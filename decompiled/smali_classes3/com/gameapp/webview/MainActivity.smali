@@ -54,6 +54,8 @@
 
 .field private jsBridge:Lcom/gameapp/webview/GameJsBridge;
 
+.field private updateChecker:Lcom/gameapp/webview/UpdateChecker;
+
 
 # direct methods
 .method public static synthetic $r8$lambda$CTb6B7JGzsOLm6DJY2967Gfke9Q(Lcom/gameapp/webview/MainActivity;Landroid/view/View;)V
@@ -1141,6 +1143,11 @@
 
     .line 98
     :goto_0
+    new-instance v1, Lcom/gameapp/webview/UpdateChecker;
+    invoke-direct {v1, p0}, Lcom/gameapp/webview/UpdateChecker;-><init>(Landroid/app/Activity;)V
+    iput-object v1, p0, Lcom/gameapp/webview/MainActivity;->updateChecker:Lcom/gameapp/webview/UpdateChecker;
+    invoke-virtual {v1}, Lcom/gameapp/webview/UpdateChecker;->checkForUpdate()V
+
     return-void
 .end method
 
