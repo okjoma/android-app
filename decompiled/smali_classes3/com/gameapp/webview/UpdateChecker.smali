@@ -18,7 +18,7 @@
 
     iput-object p1, p0, Lcom/gameapp/webview/UpdateChecker;->activity:Landroid/app/Activity;
 
-    const-string p1, "https://gitee.com/okjoma/feiniuapp/raw/main/update.json"
+    const-string p1, "https://github.com/okjoma/android-app/raw/main/update.json"
 
     iput-object p1, p0, Lcom/gameapp/webview/UpdateChecker;->updateUrl:Ljava/lang/String;
 
