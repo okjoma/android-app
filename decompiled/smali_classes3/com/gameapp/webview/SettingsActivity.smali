@@ -32,7 +32,7 @@
     move-result-object v0
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
     move-result-object v0
-    check-cast v0, Landroid/widget/LinearLayout;
+    check-cast v0, Landroid/view/ViewGroup;
     
     # 创建关于卡片容器
     new-instance v1, Landroid/widget/LinearLayout;
@@ -483,7 +483,7 @@
     move-result-object v0
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
     move-result-object v0
-    check-cast v0, Landroid/widget/LinearLayout;
+    check-cast v0, Landroid/view/ViewGroup;
     
     # 创建关于卡片容器
     new-instance v1, Landroid/widget/LinearLayout;
