@@ -135,7 +135,7 @@
 .end method
 
 .method private getSavedUrl()Ljava/lang/String;
-    .locals 3
+        .locals 8
 
     .line 76
     const-string v0, "GameAppPrefs"
@@ -317,7 +317,7 @@
 .end method
 
 .method private saveUrl(Ljava/lang/String;)V
-    .locals 3
+        .locals 8
     .param p1, "url"    # Ljava/lang/String;
 
     .line 81
@@ -372,7 +372,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+        .locals 8
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 28
