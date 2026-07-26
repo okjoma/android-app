@@ -26,6 +26,88 @@
     invoke-direct {p0, p1}, Lcom/gameapp/webview/SettingsActivity;->lambda$onCreate$0(Landroid/view/View;)V
 
     return-void
+
+    # 添加关于区域
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    move-result-object v0
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/LinearLayout;
+    
+    # 创建关于卡片容器
+    new-instance v1, Landroid/widget/LinearLayout;
+    invoke-direct {v1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    const/4 v2, 0x1
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    const v2, 0xffffffff
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v3, -0x1
+    const/4 v4, -0x2
+    invoke-direct {v2, v3, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    const/16 v3, 0x14
+    const/4 v5, 0x0
+    invoke-virtual {v2, v3, v5, v3, v5}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建版本号 TextView
+    new-instance v2, Landroid/widget/TextView;
+    invoke-direct {v2, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    const-string v3, "飞牛轻游戏 V1.1.10"
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41800000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x1000000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x2
+    const/4 v5, -0x2
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建更新说明 TextView
+    new-instance v2, Landroid/widget/TextView;
+    invoke-direct {v2, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    const-string v3, "最新更新：\n- 工具栏高度改为 30dp\n- 修复文字显示问题"
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41400000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x666667
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x2
+    const/4 v5, -0x2
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建检测更新按钮
+    new-instance v2, Landroid/widget/Button;
+    invoke-direct {v2, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+    const-string v3, "检测更新"
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41600000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x1
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    const v3, -0x9c27b0
+    invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x1
+    const/high16 v5, 0x42a00000
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IF)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 设置按钮点击事件
+    new-instance v3, Lcom/gameapp/webview/SettingsActivity$1;
+    invoke-direct {v3, p0}, Lcom/gameapp/webview/SettingsActivity$1;-><init>(Lcom/gameapp/webview/SettingsActivity;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    
+    # 添加到关于卡片
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    
+    # 添加到根布局
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
 .end method
 
 .method static constructor <clinit>()V
@@ -396,5 +478,86 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 68
+    # 添加关于区域
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    move-result-object v0
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    move-result-object v0
+    check-cast v0, Landroid/widget/LinearLayout;
+    
+    # 创建关于卡片容器
+    new-instance v1, Landroid/widget/LinearLayout;
+    invoke-direct {v1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    const/4 v2, 0x1
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    const v2, 0xffffffff
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v3, -0x1
+    const/4 v4, -0x2
+    invoke-direct {v2, v3, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    const/16 v3, 0x14
+    const/4 v5, 0x0
+    invoke-virtual {v2, v3, v5, v3, v5}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建版本号 TextView
+    new-instance v2, Landroid/widget/TextView;
+    invoke-direct {v2, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    const-string v3, "飞牛轻游戏 V1.1.10"
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41800000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x1000000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x2
+    const/4 v5, -0x2
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建更新说明 TextView
+    new-instance v2, Landroid/widget/TextView;
+    invoke-direct {v2, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    const-string v3, "最新更新：\n- 工具栏高度改为 30dp\n- 修复文字显示问题"
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41400000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x666667
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x2
+    const/4 v5, -0x2
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 创建检测更新按钮
+    new-instance v2, Landroid/widget/Button;
+    invoke-direct {v2, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+    const-string v3, "检测更新"
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    const/high16 v3, 0x41600000
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    const v3, -0x1
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    const v3, -0x9c27b0
+    invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
+    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v4, -0x1
+    const/high16 v5, 0x42a00000
+    invoke-direct {v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IF)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    
+    # 设置按钮点击事件
+    new-instance v3, Lcom/gameapp/webview/SettingsActivity$1;
+    invoke-direct {v3, p0}, Lcom/gameapp/webview/SettingsActivity$1;-><init>(Lcom/gameapp/webview/SettingsActivity;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    
+    # 添加到关于卡片
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    
+    # 添加到根布局
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
     return-void
 .end method
