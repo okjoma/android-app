@@ -3598,14 +3598,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.GameApp" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">#ffcc4800</item>
-        <item name="android:navigationBarColor">#ff1f1f2a</item>
-        <item name="colorOnPrimary">#ffffffff</item>
-        <item name="colorOnSecondary">#ffffffff</item>
-        <item name="colorPrimary">#ffe55000</item>
-        <item name="colorPrimaryVariant">#ffcc4800</item>
-        <item name="colorSecondary">#ffff8a30</item>
+    <style name="Theme.GameApp" parent="@style/Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
     </style>
     <style name="Theme.GameApp.Splash" parent="@style/Theme.GameApp">
         <item name="android:windowBackground">@drawable/toolbar_bg</item>
