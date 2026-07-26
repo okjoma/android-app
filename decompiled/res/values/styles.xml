@@ -3599,8 +3599,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.GameApp" parent="@style/Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">#ffffffff</item>
-        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">#fff5f5f5</item>
     </style>
     <style name="Theme.GameApp.Splash" parent="@style/Theme.GameApp">
         <item name="android:windowBackground">@drawable/toolbar_bg</item>
